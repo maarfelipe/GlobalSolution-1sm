@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="290107D6-241F-78C2-2FE9-1B0C212AC72E" name="T_GS_PRODUTO">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>14677CA5-96D7-8098-1982-26E450FDE05C</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cd_produto" id="DD2398E2-0E6A-D353-8897-547DAAFB9D2B">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>54CBC5E9-313A-B1D0-F38C-8A8B5182B448</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nm_produto" id="ADEECC1A-89DE-EB8E-283B-A59B0C1ED137">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>0CADE447-1FAA-2093-F92E-40F2ABC59B16</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ds_produto" id="6F04847E-51A4-8EF0-ABF5-5247AD331D59">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>343E364D-D30F-06D2-C5EB-4DA61C39E361</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F50FF394-1AF9-DBE4-A520-87A98DEC98CF" name="PK_GS_PRODUTO">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>E232E4BF-E91E-CCD6-BE88-CCD1133E118A</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD2398E2-0E6A-D353-8897-547DAAFB9D2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="65094829-23F0-3257-B635-5D4AC2A1C714" name="T_GS_USUARIO">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:37:32 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="cd_usuario" id="AD3787A2-B93F-1690-39F1-5CD9CA15B3C3">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:37:48 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
@@ -31,7 +31,7 @@
 <Attribute name="nm_usuario" id="83F3A870-8D5D-08C6-AC3D-3E2BF44020B7">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:37:53 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
@@ -44,7 +44,7 @@
 <Attribute name="ds_email" id="D8E553B9-A6EB-0F6E-3965-645859598900">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:38:05 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
@@ -57,7 +57,7 @@
 <Attribute name="ds_senha" id="95E3A983-4FC8-DF0F-9764-EFC1FF034470">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:38:17 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
@@ -70,7 +70,7 @@
 <Attribute name="dt_nascimento" id="0BDAA00D-C2BA-221A-AD74-DBEC6C056BBC">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:38:11 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
@@ -84,7 +84,7 @@
 <identifier id="F5B5F7DE-5406-AA74-75EF-8C55A6840358" name="PK_GS_USUARIO ">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-30 17:44:57 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>

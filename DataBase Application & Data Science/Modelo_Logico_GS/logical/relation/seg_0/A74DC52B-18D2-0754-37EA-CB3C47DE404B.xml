@@ -1,19 +1,19 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TER" directorySegmentName="seg_0" id="AA52A063-E769-EE30-0A04-224F1697C731">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TERv2" directorySegmentName="seg_0" id="A74DC52B-18D2-0754-37EA-CB3C47DE404B">
 <createdBy>luizz</createdBy>
-<createdTime>2023-05-30 17:51:04 UTC</createdTime>
+<createdTime>2023-05-31 21:00:53 UTC</createdTime>
 <ownerDesignName>Modelo_Logico_GS</ownerDesignName>
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
-<sourcePk>E232E4BF-E91E-CCD6-BE88-CCD1133E118A</sourcePk>
+<sourcePk>F5B5F7DE-5406-AA74-75EF-8C55A6840358</sourcePk>
 <identifying>false</identifying>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>14677CA5-96D7-8098-1982-26E450FDE05C</sourceEntity>
+<sourceEntity>65094829-23F0-3257-B635-5D4AC2A1C714</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>D17A8F6F-A9DD-13C1-5757-55263E551073</targetEntity>
+<targetEntity>7237BFCE-40F9-FFF7-4D60-E8966D6A69C2</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

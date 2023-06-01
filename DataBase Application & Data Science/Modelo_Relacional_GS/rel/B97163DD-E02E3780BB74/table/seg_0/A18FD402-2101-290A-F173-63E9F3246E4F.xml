@@ -56,17 +56,6 @@
 <ownDataTypeParameters>35,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="dt_nascimento" id="FAFF6026-853D-863C-10AC-8491CE041839">
-<createdBy>luizz</createdBy>
-<createdTime>2023-05-31 11:50:15 UTC</createdTime>
-<generatorID>0BDAA00D-C2BA-221A-AD74-DBEC6C056BBC</generatorID>
-<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="DBE5FD9F-24F6-4856-CB18-FC797BC5B45A" name="PK_GS_USUARIO">

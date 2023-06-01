@@ -52,6 +52,22 @@
 <colAssociation fkAssociation="7E20E77D-6B59-B3D0-FEE9-D4FD07E3D97D" referredColumn="25856F11-ADFF-C3C7-19BC-AB4576015FCB"/>
 </associations>
 </Column>
+<Column name="cd_localizacao" id="4ABE30F5-B350-36CB-440C-0BED66D33F25">
+<createdBy>luizz</createdBy>
+<createdTime>2023-06-01 13:34:36 UTC</createdTime>
+<generatorID>63C9C1F9-FB32-5F25-A31F-7A9667BB756C</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="574271C4-D517-2C55-2FB0-34C6308854DF" referredColumn="1EB16F04-4B3E-03D7-C256-C09131209528"/>
+</associations>
+</Column>
 <Column name="qt_nitrogenio" id="0A6B3CDD-76BE-803A-195A-77227245641F">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-31 11:50:15 UTC</createdTime>
@@ -81,7 +97,6 @@
 <createdTime>2023-05-31 11:50:15 UTC</createdTime>
 <generatorID>4A6C0EE2-8E8E-4DA3-F1A7-D3D8BDFED648</generatorID>
 <ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -151,6 +166,17 @@
 <colUsage columnID="C1D99199-0D8C-96E9-4392-5745D3E28D79"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="D53F67B0-488D-ED38-5197-A62A0C34657D" name="T_GS_SOLO__IDX">
+<createdBy>luizz</createdBy>
+<createdTime>2023-06-01 13:34:36 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>58A8DC6D-D8D9-D07F-2229-8F74929E6C7B</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="4ABE30F5-B350-36CB-440C-0BED66D33F25"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="48F55C8F-E51F-2627-AD74-510EB9172C95" name="FK_GS_SOLO_PRODUTO">
 <createdBy>luizz</createdBy>
 <createdTime>2023-05-31 11:50:15 UTC</createdTime>
@@ -171,6 +197,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="FAE592D9-E10A-8DFF-9354-6443D0E7B53C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D049C4A8-81B2-2BA2-DF09-98C2A2B50D48" name="FK_GS_SOLO_LOCALIZACAO">
+<createdBy>luizz</createdBy>
+<createdTime>2023-06-01 13:34:36 UTC</createdTime>
+<generatorID>58A8DC6D-D8D9-D07F-2229-8F74929E6C7B</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4ABE30F5-B350-36CB-440C-0BED66D33F25"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

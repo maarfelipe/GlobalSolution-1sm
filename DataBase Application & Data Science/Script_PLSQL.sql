@@ -1,13 +1,24 @@
 set serveroutpu on
 set verify off
 
-
+/*
+Código em pl/sql que insere automaticamente as informações da tabela:
+T_GS_PRODUTO
+*/
 BEGIN
-  INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (1, 'Arroz', 'Produto de plantação');
-  INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (2, 'Milho', 'Produto de plantação');
-  INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (3, 'Trigo', 'Produto de plantação');
-  INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (4, 'Feijão', 'Produto de plantação');
-  INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (5, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (1, 'Arroz', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (2, 'Milho', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (3, 'Trigo', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (4, 'Feijão', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (5, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (6, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (7, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (8, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (9, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (10, 'Batata', 'Produto de plantação');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (11, 'Batata', 'Produto de plantação');
+    
+    
   COMMIT;
 END;
 
@@ -15,21 +26,26 @@ select * from t_gs_produto;
 
 
 
+
+/*
+Código em pl/sql que insere automaticamente as informações da tabela:
+T_GS_USUARIO
+*/
 BEGIN
-  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha, dt_nascimento) 
-  VALUES (1, 'Usuário 1', 'usuario1@example.com', 'senha1', TO_DATE('1990-01-01', 'YYYY-MM-DD'));
+  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha) 
+  VALUES (1, 'Usuário 1', 'usuario1@example.com', 'senha1');
   
-  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha, dt_nascimento) 
-  VALUES (2, 'Usuário 2', 'usuario2@example.com', 'senha2', TO_DATE('1990-01-02', 'YYYY-MM-DD'));
+  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha) 
+  VALUES (2, 'Usuário 2', 'usuario2@example.com', 'senha2');
   
-  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha, dt_nascimento) 
-  VALUES (3, 'Usuário 3', 'usuario3@example.com', 'senha3', TO_DATE('1990-01-03', 'YYYY-MM-DD'));
+  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha) 
+  VALUES (3, 'Usuário 3', 'usuario3@example.com', 'senha3');
   
-  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha, dt_nascimento) 
-  VALUES (4, 'Usuário 4', 'usuario4@example.com', 'senha4', TO_DATE('1990-01-04', 'YYYY-MM-DD'));
+  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha) 
+  VALUES (4, 'Usuário 4', 'usuario4@example.com', 'senha4');
   
-  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha, dt_nascimento) 
-  VALUES (5, 'Usuário 5', 'usuario5@example.com', 'senha5', TO_DATE('1990-01-05', 'YYYY-MM-DD'));
+  INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha) 
+  VALUES (5, 'Usuário 5', 'usuario5@example.com', 'senha5');
   
   COMMIT;
 end;
@@ -37,6 +53,16 @@ end;
 select * from t_gs_usuario;
 
 
+
+
+/*
+Código em pl/sql que  as insere informações da tabela:
+"T_GS_PRODUTO"
+Essa tabela irá pedir as informações do Usuario e verificar se ele já existe, 
+caso ele ja exista irá dar um erro, esse erro será registrado na tabela
+"T_GS_REGISTRO_LOG". Agora, caso esse usuário não exista irá inserir
+as informações na tabela T_GS_USUARIO
+*/
 DECLARE
   v_cd_usuario t_gs_usuario.cd_usuario%TYPE;
   v_nm_usuario t_gs_usuario.nm_usuario%TYPE;
@@ -55,8 +81,8 @@ BEGIN
 
   IF v_nm_usuario IS NULL THEN
     v_nm_usuario := '&nm_usuario';
-    INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha, dt_nascimento)
-    VALUES (v_cd_usuario, v_nm_usuario, '&ds_email', '&ds_senha', TO_DATE('&dt_nascimento', 'DD/MM/YYYY'));
+    INSERT INTO t_gs_usuario (cd_usuario, nm_usuario, ds_email, ds_senha)
+    VALUES (v_cd_usuario, v_nm_usuario, '&ds_email', '&ds_senha');
   ELSE
     SELECT MAX(cd_erro) INTO v_cd_erro FROM t_gs_registro_log;
     v_cd_erro := COALESCE(v_cd_erro, 0) + 1;
@@ -74,6 +100,129 @@ END;
 
 select * from t_gs_usuario;
 select * from t_gs_registro_log;
+
+
+
+/*
+Código em pl/sql que insere automaticamente as informações da tabela:
+T_GS_LOCALIZACAO
+*/
+BEGIN
+  INSERT INTO t_gs_localizacao (cd_localizacao, fk_usuario_localizacao, ds_longitude, ds_latitude, nm_localizacao, ds_cep)
+  VALUES (1, 1, 'Long1', 'Latitude 1', 'Localização 1', 'CEP 1');
+  
+  INSERT INTO t_gs_localizacao (cd_localizacao, fk_usuario_localizacao, ds_longitude, ds_latitude, nm_localizacao, ds_cep)
+  VALUES (2, 2, 'Long2', 'Latitude 2', 'Localização 2', 'CEP 2');
+  
+  INSERT INTO t_gs_localizacao (cd_localizacao, fk_usuario_localizacao, ds_longitude, ds_latitude, nm_localizacao, ds_cep)
+  VALUES (3, 2, 'Long3', 'Latitude 3', 'Localização 3', 'CEP 3');
+  
+  INSERT INTO t_gs_localizacao (cd_localizacao, fk_usuario_localizacao, ds_longitude, ds_latitude, nm_localizacao, ds_cep)
+  VALUES (4, 2, 'Long4', 'Latitude 4', 'Localização 4', 'CEP 4');
+  
+  INSERT INTO t_gs_localizacao (cd_localizacao, fk_usuario_localizacao, ds_longitude, ds_latitude, nm_localizacao, ds_cep)
+  VALUES (5, 1, 'Long5', 'Latitude 5', 'Localização 5', 'CEP 5');
+  
+  COMMIT;
+END;
+
+
+
+/*
+Código em pl/sql que gera um relatorio de todas as localizações vinculadas 
+a um usuario 
+*/
+DECLARE
+    v_cd_usuario t_gs_usuario.cd_usuario%TYPE; 
+    v_ds_localizacao t_gs_localizacao%ROWTYPE;
+    CURSOR c_localizacoes IS
+        SELECT *
+        FROM t_gs_localizacao
+        WHERE fk_usuario_localizacao = v_cd_usuario;
+BEGIN
+    v_cd_usuario := &cd_usuario; 
+    OPEN c_localizacoes;
+    LOOP
+        FETCH c_localizacoes INTO v_ds_localizacao;
+        EXIT WHEN c_localizacoes%NOTFOUND;
+         DBMS_OUTPUT.PUT_LINE('------------------------------');
+        DBMS_OUTPUT.PUT_LINE('CD_Localização: ' || v_ds_localizacao.cd_localizacao);
+        DBMS_OUTPUT.PUT_LINE('Longitude: ' || v_ds_localizacao.ds_longitude);
+        DBMS_OUTPUT.PUT_LINE('Latitude: ' || v_ds_localizacao.ds_latitude);
+        DBMS_OUTPUT.PUT_LINE('Nome LOcalização: ' || v_ds_localizacao.nm_localizacao);
+        DBMS_OUTPUT.PUT_LINE('CEP: ' || v_ds_localizacao.ds_cep);
+        DBMS_OUTPUT.PUT_LINE('------------------------------');
+    END LOOP;
+    CLOSE c_localizacoes;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Erro ao exibir as localizações: ' || SQLERRM);
+END;
+
+
+
+
+
+
+
+BEGIN
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (1, 1, 1, 1, 1, 1, 25, 50, 6.5, 100);
+
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (2, 1, 2, 2, 2, 2, 26, 52, 6.4, 85);
+
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (3, 1, 3, 3, 3, 3, 27, 55, 6.3, 90);
+
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (4, 1, 4, 4, 4, 4, 28, 58, 6.2, 95);
+
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (5, 5, 5, 5, 5, 5, 29, 60, 6.1, 80);
+
+  COMMIT;
+END;
+
+
+
+
+
+DECLARE
+    v_cd_solo t_gs_solo.cd_solo%TYPE := &cd_solo; -- Insira o código do solo desejado aqui
+    v_cd_produto t_gs_produto.cd_produto%TYPE;
+    v_nm_produto t_gs_produto.nm_produto%TYPE;
+    CURSOR c_produtos (p_cd_solo t_gs_solo.cd_solo%TYPE) IS
+        SELECT p.cd_produto, p.nm_produto
+        FROM t_gs_solo s
+        INNER JOIN t_gs_produto p ON s.fk_produto = p.cd_produto
+        WHERE s.cd_solo = p_cd_solo;
+BEGIN
+    OPEN c_produtos(v_cd_solo);
+    LOOP
+        FETCH c_produtos INTO v_cd_produto, v_nm_produto;
+        EXIT WHEN c_produtos%NOTFOUND;
+        
+        -- Exibe as informações do produto
+        DBMS_OUTPUT.PUT_LINE('Codigo Produto: ' || v_cd_produto);
+        DBMS_OUTPUT.PUT_LINE('Nome produto: ' || v_nm_produto);
+        DBMS_OUTPUT.PUT_LINE('------------------------------');
+    END LOOP;
+    CLOSE c_produtos;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Erro ao exibir os produtos: ' || SQLERRM);
+END;
+
+
+
+
+select * from t_gs_solo;
+
+
+
+
+
 
 
 

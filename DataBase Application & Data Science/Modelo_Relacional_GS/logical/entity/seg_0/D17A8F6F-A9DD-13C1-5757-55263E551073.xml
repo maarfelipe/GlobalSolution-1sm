@@ -91,7 +91,6 @@
 <engineerTo>
 <item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -149,6 +148,21 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cd_localizacao" id="63C9C1F9-FB32-5F25-A31F-7A9667BB756C">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 21:01:28 UTC</createdTime>
+<generatorID>58A8DC6D-D8D9-D07F-2229-8F74929E6C7B</generatorID>
+<ownerDesignName>Modelo_Relacional_GS</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<referedAttribute>13675558-80D0-E63E-C969-7D6E68A51DCC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

@@ -67,18 +67,6 @@
 <dataTypeSize>35</dataTypeSize>
 <ownDataTypeParameters>35,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dt_nascimento" id="0BDAA00D-C2BA-221A-AD74-DBEC6C056BBC">
-<createdBy>luizz</createdBy>
-<createdTime>2023-05-30 17:38:11 UTC</createdTime>
-<ownerDesignName>Modelo_Logico_GS</ownerDesignName>
-<engineerTo>
-<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="F5B5F7DE-5406-AA74-75EF-8C55A6840358" name="PK_GS_USUARIO ">

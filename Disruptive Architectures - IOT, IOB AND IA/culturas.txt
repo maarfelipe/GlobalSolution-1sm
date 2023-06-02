@@ -1,22 +1,22 @@
-apple - maçã
-banana - banana
-blackgram - feijão preto
-chickpea - grão-de-bico
-coconut - coco
-coffee - café
-cotton - algodão
-grapes - uvas
-jute - juta
-kidneybeans - feijão vermelho
-lentil - lentilha
-maize - milho
-mango - manga
-mothbeans - feijão carioca
-mungbean - feijão moyashi
-muskmelon - melão
-orange - laranja
-papaya - mamão
-pigeonpeas - sorgo
-pomegranate - romã
-rice - arroz
-watermelon - melancia
+apple - maçã - julho a setembro
+banana - banana -  outubro a março
+blackgram - feijão preto - setembro a novembro
+chickpea - grão-de-bico - primavera ou verão 
+coconut - coco - janeiro e fevereiro
+coffee - café - outubro a março
+cotton - algodão - fevereiro a junho
+grapes - uvas - julho a agosto (depende da uva)
+jute - juta - outubro a março
+kidneybeans - feijão vermelho - fevereiro a março e abril a julho
+lentil - lentilha - maio
+maize - milho -  final de setembro a começo novembro
+mango - manga - outubro e março
+mothbeans - feijão carioca - setembro a novembro/janeiro a março/maio a julho (ano todo - exceto Dezembro, Abril, Agosto)
+mungbean - feijão moyashi - agosto e março
+muskmelon - melão - outubro a fevereiro 
+orange - laranja - setembro a dezembro
+papaya - mamão - qualquer época do ano
+pigeonpeas - sorgo - setembro e novembro
+pomegranate - romã - setembro (primavera)
+rice - arroz - outubro a dezembro
+watermelon - melancia - outubro a fevereiro

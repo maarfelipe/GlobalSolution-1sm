@@ -24,19 +24,6 @@ CREATE TABLE t_gs_usuario (
 );
 commit;
 
-CREATE TABLE t_gs_solo (
-    cd_solo        NUMBER(6) primary key,
-    fk_produto     references t_gs_produto,
-    fk_usuario     references t_gs_usuario,
-    qt_nitrogenio  NUMBER(4) NOT NULL,
-    qt_potassio    NUMBER(4) NOT NULL,
-    qt_fosforo     NUMBER(4) NOT NULL,
-    qt_temperatura NUMBER(2) NOT NULL,
-    qt_umidade     NUMBER(10) NOT NULL,
-    ds_ph          NUMBER(10) NOT NULL,
-    ds_chuva       NUMBER(10) NOT NULL
-);
-commit;
 
 CREATE TABLE t_gs_registro_log (
 	cd_erro NUMBER(5), 
@@ -56,3 +43,17 @@ CREATE TABLE t_gs_localizacao (
 );
 
 
+CREATE TABLE t_gs_solo (
+    cd_solo        NUMBER(6) primary key,
+    fk_produto     references t_gs_produto,
+    fk_usuario     references t_gs_usuario,
+    fk_localizacao     references t_gs_localizacao,
+    qt_nitrogenio  NUMBER(4) NOT NULL,
+    qt_potassio    NUMBER(4) NOT NULL,
+    qt_fosforo     NUMBER(4) NOT NULL,
+    qt_temperatura NUMBER(2) NOT NULL,
+    qt_umidade     NUMBER(10) NOT NULL,
+    ds_ph          NUMBER(10) NOT NULL,
+    ds_chuva       NUMBER(10) NOT NULL
+);
+commit;

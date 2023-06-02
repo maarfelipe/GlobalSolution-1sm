@@ -17,8 +17,6 @@ BEGIN
     INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (9, 'Batata', 'Produto de plantação');
     INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (10, 'Batata', 'Produto de plantação');
     INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto) VALUES (11, 'Batata', 'Produto de plantação');
-    
-    
   COMMIT;
 END;
 
@@ -125,8 +123,7 @@ BEGIN
   
   COMMIT;
 END;
-
-
+select * from t_gs_localizacao;
 
 /*
 Código em pl/sql que gera um relatorio de todas as localizações vinculadas 
@@ -164,7 +161,10 @@ END;
 
 
 
-
+/*
+Código em pl/sql que insere automaticamente as informações da tabela:
+T_GS_SOLO
+*/
 BEGIN
   INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
   VALUES (1, 1, 1, 1, 1, 1, 25, 50, 6.5, 100);
@@ -179,45 +179,60 @@ BEGIN
   VALUES (4, 1, 4, 4, 4, 4, 28, 58, 6.2, 95);
 
   INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
-  VALUES (5, 5, 5, 5, 5, 5, 29, 60, 6.1, 80);
+  VALUES (5, 2, 5, 5, 5, 5, 29, 60, 6.1, 80);
+  
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (6, 2, 5, 5, 5, 5, 29, 60, 6.1, 80);
+  
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (7, 3, 5, 5, 5, 5, 29, 60, 6.1, 80);
+  
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (8, 4, 5, 5, 5, 5, 29, 60, 6.1, 80);
+  
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (9, 4, 5, 5, 5, 5, 29, 60, 6.1, 80);
+  
+  INSERT INTO t_gs_solo (cd_solo, fk_produto, fk_usuario, qt_nitrogenio, qt_potassio, qt_fosforo, qt_temperatura, qt_umidade, ds_ph, ds_chuva)
+  VALUES (10, 5, 5, 5, 5, 5, 29, 60, 6.1, 80);
 
   COMMIT;
 END;
+select * from t_gs_solo;
 
 
 
 
-
+/*
+CCódigo em pl/sql que gera um relatório de quantos solos estão 
+plantados com um determinado produto
+*/
 DECLARE
-    v_cd_solo t_gs_solo.cd_solo%TYPE := &cd_solo; -- Insira o código do solo desejado aqui
-    v_cd_produto t_gs_produto.cd_produto%TYPE;
-    v_nm_produto t_gs_produto.nm_produto%TYPE;
-    CURSOR c_produtos (p_cd_solo t_gs_solo.cd_solo%TYPE) IS
-        SELECT p.cd_produto, p.nm_produto
-        FROM t_gs_solo s
-        INNER JOIN t_gs_produto p ON s.fk_produto = p.cd_produto
-        WHERE s.cd_solo = p_cd_solo;
+  v_produto_codigo t_gs_produto.cd_produto%TYPE; 
+  v_produto_nome   t_gs_produto.nm_produto%TYPE;
+  v_total_solos    NUMBER := 0;  
+
+  CURSOR c_solos IS
+    SELECT s.cd_solo, p.nm_produto FROM t_gs_solo s
+    JOIN t_gs_produto p ON s.fk_produto = p.cd_produto
+    WHERE p.cd_produto = v_produto_codigo;
+
 BEGIN
-    OPEN c_produtos(v_cd_solo);
-    LOOP
-        FETCH c_produtos INTO v_cd_produto, v_nm_produto;
-        EXIT WHEN c_produtos%NOTFOUND;
-        
-        -- Exibe as informações do produto
-        DBMS_OUTPUT.PUT_LINE('Codigo Produto: ' || v_cd_produto);
-        DBMS_OUTPUT.PUT_LINE('Nome produto: ' || v_nm_produto);
-        DBMS_OUTPUT.PUT_LINE('------------------------------');
-    END LOOP;
-    CLOSE c_produtos;
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Erro ao exibir os produtos: ' || SQLERRM);
+  v_produto_codigo := &codigo_produto;
+  SELECT nm_produto INTO v_produto_nome
+  FROM t_gs_produto
+  WHERE cd_produto = v_produto_codigo;
+
+  FOR r_solo IN c_solos LOOP
+    v_total_solos := v_total_solos + 1;
+
+    DBMS_OUTPUT.PUT_LINE('Solo ' || r_solo.cd_solo || ' está plantado com ' || v_produto_nome);
+  END LOOP;
+
+  DBMS_OUTPUT.PUT_LINE('Total de solos com o produto ' || v_produto_nome || ': ' || v_total_solos);
 END;
 
 
-
-
-select * from t_gs_solo;
 
 
 

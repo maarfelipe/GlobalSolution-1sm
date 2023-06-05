@@ -30,5 +30,12 @@ public class Localizacao {
     @Column(name = "ds_cep", nullable = false)
     private String cep;
 
+    @ManyToOne
+    @JoinColumn(name = "cd_usuario")
+    private Usuario usuario;
+
+    @OneToOne
+    @JoinColumn(name = "cd_solo")
+    private Solo solo;
 
 }

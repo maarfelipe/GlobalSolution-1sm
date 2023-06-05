@@ -39,6 +39,16 @@ public class Solo {
     @Column(name = "ds_chuva", nullable = false)
     private double chuva;
 
-    @ManyToOne()
+    @ManyToOne
+    @JoinColumn(name = "cd_usuario")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "cd_produto")
+    private Produto produto;
+
+    @OneToOne(mappedBy = "solo")
+    @JoinColumn(name = "cd_localizacao")
+    private Localizacao localizacao;
 
 }

@@ -1,10 +1,13 @@
 package com.cropsage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,7 +24,8 @@ public class Produto {
     @Column(name = "nm_produto", nullable = false)
     private String nome;
 
-    @Column(name = "ds_produto", nullable = false)
-    private String descricao;
+    @JsonIgnore
+    @OneToMany(mappedBy = "produto")
+    private List<Solo> soloList;
 
 }

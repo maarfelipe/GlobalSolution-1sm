@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TERv2" directorySegmentName="seg_0" id="A74DC52B-18D2-0754-37EA-CB3C47DE404B">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 21:00:53 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Relacional</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<sourcePk>F5B5F7DE-5406-AA74-75EF-8C55A6840358</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>65094829-23F0-3257-B635-5D4AC2A1C714</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7237BFCE-40F9-FFF7-4D60-E8966D6A69C2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A18FD402-2101-290A-F173-63E9F3246E4F" name="T_GS_USUARIO">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>65094829-23F0-3257-B635-5D4AC2A1C714</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cd_usuario" id="25856F11-ADFF-C3C7-19BC-AB4576015FCB">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>AD3787A2-B93F-1690-39F1-5CD9CA15B3C3</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nm_usuario" id="357605D0-07EB-1910-6109-F9F681584676">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>83F3A870-8D5D-08C6-AC3D-3E2BF44020B7</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ds_email" id="30557A9F-E655-467D-E5EE-A8EF96568A2A">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>D8E553B9-A6EB-0F6E-3965-645859598900</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ds_senha" id="52ABC904-3215-217B-ED28-EA5EB0C58A1D">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>95E3A983-4FC8-DF0F-9764-EFC1FF034470</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>35</dataTypeSize>
+<ownDataTypeParameters>35,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DBE5FD9F-24F6-4856-CB18-FC797BC5B45A" name="PK_GS_USUARIO">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 11:50:15 UTC</createdTime>
+<generatorID>F5B5F7DE-5406-AA74-75EF-8C55A6840358</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25856F11-ADFF-C3C7-19BC-AB4576015FCB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

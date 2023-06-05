@@ -1,0 +1,183 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D17A8F6F-A9DD-13C1-5757-55263E551073" name="T_GS_SOLO">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:38:50 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cd_solo" id="ECECD27E-BF40-1BF2-3C14-810BBF6B21BD">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:38:58 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cd_produto" id="E3238940-F677-218C-4551-D03341402F49">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:51:04 UTC</createdTime>
+<generatorID>AA52A063-E769-EE30-0A04-224F1697C731</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<referedAttribute>54CBC5E9-313A-B1D0-F38C-8A8B5182B448</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cd_usuario" id="D0909B20-9F0A-7BFF-58AA-AE95359E7AA8">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:51:24 UTC</createdTime>
+<generatorID>C9BDF956-62D1-5CB0-BCB5-A4137CDB35CD</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<referedAttribute>AD3787A2-B93F-1690-39F1-5CD9CA15B3C3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qt_nitrogenio" id="6B6FAF01-729D-3E35-1B83-BE1685762ACD">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:39:07 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qt_potassio" id="6B088DEF-104F-FB4F-4CB8-38A80785582B">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:41:07 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qt_fosforo" id="4A6C0EE2-8E8E-4DA3-F1A7-D3D8BDFED648">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:41:13 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qt_temperatura" id="9BD16D20-EACC-9DE4-A728-B29AE2A21A33">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:41:28 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qt_umidade" id="0D1A9AB8-744D-3319-D03B-1B5644412BB4">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:41:36 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ds_ph" id="A1E146EB-D349-89A2-CCA2-7BF22734815F">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:41:42 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ds_chuva" id="13F7F810-7982-A793-DB83-1A7DD6EEE30E">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:41:55 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cd_localizacao" id="63C9C1F9-FB32-5F25-A31F-7A9667BB756C">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-31 21:01:28 UTC</createdTime>
+<generatorID>58A8DC6D-D8D9-D07F-2229-8F74929E6C7B</generatorID>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<referedAttribute>13675558-80D0-E63E-C969-7D6E68A51DCC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2A1EFE7C-99C0-09C8-C594-B435CFEA5E5E" name="PK_GS_SOLO ">
+<createdBy>luizz</createdBy>
+<createdTime>2023-05-30 17:45:56 UTC</createdTime>
+<ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
+<engineerTo>
+<item key="B97163DD-1643-2930-E482-E02E3780BB74" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>ECECD27E-BF40-1BF2-3C14-810BBF6B21BD</newElementsIDs>
+<usedAttributes>
+<attributeRef>ECECD27E-BF40-1BF2-3C14-810BBF6B21BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

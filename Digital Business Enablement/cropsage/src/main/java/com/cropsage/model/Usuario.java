@@ -38,7 +38,7 @@ public class Usuario implements UserDetails {
 
     @Column(name = "ds_email", nullable = false)
     @NotEmpty(message = "Email é obrigatório.")
-    @Email
+    @Email(message = "O Email precisa ser válido")
     private String email;
 
     @Column(name = "ds_senha", nullable = false)

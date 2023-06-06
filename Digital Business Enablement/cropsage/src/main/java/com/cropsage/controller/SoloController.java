@@ -1,5 +1,6 @@
 package com.cropsage.controller;
 
+import com.cropsage.model.Localizacao;
 import com.cropsage.model.Produto;
 import com.cropsage.model.ProdutoLabel;
 import com.cropsage.model.Solo;
@@ -74,6 +75,7 @@ public class SoloController {
 
         solo.setProduto(produto);
         solo.setUsuario(usuario);
+        solo.getLocalizacao().setUsuario(usuario);
 
         localizacaoRepository.save(solo.getLocalizacao());
         produtoRepository.save(produto);
@@ -104,5 +106,24 @@ public class SoloController {
         return ResponseEntity.ok(solo);
     }
 
+    @GetMapping("produto/{nome}")
+    public Page<Solo> solosByProdutoNome(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable, @PathVariable String nome) {
+        log.info("buscando usuario");
+        var usuario = tokenService.validate(tokenService.getToken(header));
+        var listSolo = soloRepository.findByUsuarioAndProdutoNomeContaining(usuario,nome);
+        int start = (int) pageable.getOffset();
+        int end = (int) (Math.min((start + pageable.getPageSize()), listSolo.size()));
+        return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
+    }
+
+    @GetMapping("localizacao/{nome}")
+    public Page<Solo> solosByLocalizacaoNome(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable, @PathVariable String nome) {
+        log.info("buscando usuario");
+        var usuario = tokenService.validate(tokenService.getToken(header));
+        var listSolo = soloRepository.findByUsuarioAndLocalizacaoNomeContaining(usuario,nome);
+        int start = (int) pageable.getOffset();
+        int end = (int) (Math.min((start + pageable.getPageSize()), listSolo.size()));
+        return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.cropsage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -38,8 +39,8 @@ public class Localizacao {
     @JoinColumn(name = "cd_usuario")
     private Usuario usuario;
 
-    @OneToOne
-    @JoinColumn(name = "cd_solo")
+    @OneToOne(mappedBy = "localizacao")
+    @JsonIgnore
     private Solo solo;
 
 }

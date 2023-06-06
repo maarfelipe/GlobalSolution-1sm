@@ -70,7 +70,7 @@ public class Solo {
     @JoinColumn(name = "cd_produto")
     private Produto produto;
 
-    @OneToOne(mappedBy = "solo")
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cd_localizacao")
     private Localizacao localizacao;
 

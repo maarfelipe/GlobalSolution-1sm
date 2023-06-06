@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -44,12 +45,17 @@ public class SoloController {
     @Autowired
     TokenService tokenService;
 
+    @Value("${cropsage.ml.host}")
+    private String mlhost;
+    @Value("${cropsage.ml.port}")
+    private String mlport;
+
     @PostMapping
     public ResponseEntity<Object> addSolo(@RequestHeader("Authorization") String header, @RequestBody @Valid Solo solo) {
         log.info("buscando usuario");
         var usuario = tokenService.validate(tokenService.getToken(header));
 
-        String url = "http://localhost:5000/"
+        String url = "http://" + mlhost + ":" + mlport + "/"
                 + String.valueOf(solo.getNitrogenio()) + "/"
                 + String.valueOf(solo.getFosforo()) + "/"
                 + String.valueOf(solo.getPotassio()) + "/"

@@ -24,6 +24,9 @@ public class Produto {
     @Column(name = "nm_produto", nullable = false)
     private String nome;
 
+    @Column(name = "ds_plantio", nullable = false)
+    private String epoca;
+
     @JsonIgnore
     @OneToMany(mappedBy = "produto")
     private List<Solo> soloList;

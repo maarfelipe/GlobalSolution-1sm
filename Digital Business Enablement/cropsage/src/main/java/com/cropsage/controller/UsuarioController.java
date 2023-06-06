@@ -1,14 +1,13 @@
 package com.cropsage.controller;
 
-import com.cropsage.model.Produto;
-import com.cropsage.model.ProdutoLabel;
-import com.cropsage.model.Solo;
-import com.cropsage.model.Usuario;
+import com.cropsage.model.*;
 import com.cropsage.repository.ProdutoRepository;
 import com.cropsage.repository.SoloRepository;
 import com.cropsage.repository.UsuarioRepository;
+import com.cropsage.service.TokenService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +20,14 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.*;
+import java.net.Authenticator;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -44,6 +46,15 @@ public class UsuarioController {
     @Autowired
     ProdutoRepository produtoRepository;
 
+    @Autowired
+    AuthenticationManager manager;
+
+    @Autowired
+    PasswordEncoder encoder;
+
+    @Autowired
+    TokenService tokenService;
+
     @GetMapping
     public Page<Usuario> index(@PageableDefault(size = 5) Pageable pageable){
         return usuarioRepository.findAll(pageable);
@@ -57,11 +68,19 @@ public class UsuarioController {
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping
-    public ResponseEntity<Object> create(@RequestBody @Valid Usuario usuario) {
+    @PostMapping("cadastrar")
+    public ResponseEntity<Object> cadastro(@RequestBody @Valid Usuario usuario) {
         log.info("cadastrando usuario");
+        usuario.setSenha(encoder.encode(usuario.getSenha()));
         usuarioRepository.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<Object> login(@RequestBody Credencial credencial) {
+        manager.authenticate(credencial.toAuthentication());
+        var token = tokenService.generateToken(credencial);
+        return ResponseEntity.ok(token);
     }
 
     @DeleteMapping("{id}")
@@ -82,23 +101,6 @@ public class UsuarioController {
         usuario.setId(id);
         usuarioRepository.save(usuario);
         return ResponseEntity.ok(usuario);
-    }
-
-    @GetMapping("{id}/testsolo")
-    public ResponseEntity<Object> testSolo(@PathVariable Long id) {
-        String url = "http://127.0.0.1:5000/46/76/77/18.2356751/19.68538502/6.967843048/83.74879344";
-        WebClient.Builder builder = WebClient.builder();
-
-        String result = builder.build()
-                .get()
-                .uri(url)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-
-        log.info(result);
-
-        return ResponseEntity.ok(result);
     }
 
     @PostMapping("{id}/solo")
@@ -130,7 +132,7 @@ public class UsuarioController {
 
         log.info(result.getLabel());
 
-        Produto produto = Produto.builder().nome(result.getLabel()).build();
+        Produto produto = Produto.builder().nome(result.getLabel()).epoca(result.getEpoca()).build();
 
         solo.setProduto(produto);
 
@@ -139,5 +141,7 @@ public class UsuarioController {
         usuarioRepository.save(usuario);
         return ResponseEntity.ok(solo);
     }
+
+
 
 }

@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ProdutoLabel {
     private String label;
-    private String data;
+    private String epoca;
 }

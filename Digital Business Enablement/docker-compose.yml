@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  api:
+    build: ./cropsage
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - spring.datasource.url=jdbc:mariadb://cropsage_db:3306/cropsage
+      - spring.datasource.username=root
+      - spring.datasource.password=root
+      - spring_jpa_hibernate_ddl-auto=create
+      - spring.datasource.initialization-mode=always
+      - cropsage.ml.host=ml_api
+      - cropsage.ml.port=5000
+    depends_on:
+      - maria_db
+      - ml_api
+    links:
+      - maria_db:cropsage_db
+      - ml_api:ml_api
+  maria_db:
+    image: mariadb
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: cropsage
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+  ml_api:
+    build: ./ml_api
+    ports:
+      - 5000:5000

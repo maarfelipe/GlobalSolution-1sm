@@ -1,6 +1,7 @@
 package com.cropsage.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,15 +20,18 @@ public class Localizacao {
     private long id;
 
     @Column(name = "ds_longitude", nullable = false)
+    @NotEmpty(message = "Longitude é obrigatório.")
     private String longitude;
 
     @Column(name = "ds_latitude", nullable = false)
+    @NotEmpty(message = "Latitude é obrigatório.")
     private String latitude;
 
     @Column(name = "nm_localizacao", nullable = false)
+    @NotEmpty(message = "Nome é obrigatório.")
     private String nome;
 
-    @Column(name = "ds_cep", nullable = false)
+    @Column(name = "ds_cep")
     private String cep;
 
     @ManyToOne

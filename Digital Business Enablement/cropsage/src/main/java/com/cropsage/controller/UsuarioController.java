@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.PagedResourcesAssembler;
@@ -56,15 +57,9 @@ public class UsuarioController {
     TokenService tokenService;
 
     @GetMapping
-    public Page<Usuario> index(@PageableDefault(size = 5) Pageable pageable){
-        return usuarioRepository.findAll(pageable);
-    }
-
-    @GetMapping("{id}")
-    public ResponseEntity<Object> index(@PathVariable Long id) {
-        log.info("buscando usuario "+id);
-        var result = usuarioRepository.findById(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não Encontrado"));
+    public ResponseEntity<Object> index(@RequestHeader("Authorization") String header) {
+        log.info("buscando usuario");
+        var result = tokenService.validate(tokenService.getToken(header));
         return ResponseEntity.ok(result);
     }
 
@@ -83,65 +78,72 @@ public class UsuarioController {
         return ResponseEntity.ok(token);
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Object> delete(@PathVariable Long id) {
-        log.info("buscando usuario "+id);
-        var result = usuarioRepository.findById(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não Encontrado"));
+    @DeleteMapping
+    public ResponseEntity<Object> delete(@RequestHeader("Authorization") String header) {
+        log.info("buscando usuario");
+        var result = tokenService.validate(tokenService.getToken(header));
         soloRepository.deleteAll(soloRepository.findByUsuario(result));
         usuarioRepository.delete(result);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody @Valid Usuario usuario) {
-        log.info("buscando usuario "+id);
-        usuarioRepository.findById(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não Encontrado"));
-        usuario.setId(id);
+    @PutMapping
+    public ResponseEntity<Object> update(@RequestHeader("Authorization") String header, @RequestBody @Valid Usuario usuario) {
+        log.info("buscando usuario");
+        var result = tokenService.validate(tokenService.getToken(header));
+        usuario.setId(result.getId());
+        usuario.setSenha(encoder.encode(usuario.getSenha()));
         usuarioRepository.save(usuario);
         return ResponseEntity.ok(usuario);
     }
 
-    @PostMapping("{id}/solo")
-    public ResponseEntity<Object> addSolo(@PathVariable Long id, @RequestBody @Valid Solo solo) {
-        log.info("buscando usuario "+id);
-        var usuario = usuarioRepository.findById(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não Encontrado"));
-        usuario.getSoloList().add(solo);
-
-        String url = "http://localhost:5000/"
-                + String.valueOf(solo.getNitrogenio()) + "/"
-                + String.valueOf(solo.getFosforo()) + "/"
-                + String.valueOf(solo.getPotassio()) + "/"
-                + String.valueOf(solo.getTemperatura()) + "/"
-                + String.valueOf(solo.getUmidade()) + "/"
-                + String.valueOf(solo.getPh()) + "/"
-                + String.valueOf(solo.getChuva());
-
-        log.info("fazendo requisição na url: " + url);
-
-        WebClient.Builder builder = WebClient.builder();
-
-        ProdutoLabel result = builder.build()
-                .get()
-                .uri(url)
-                .retrieve()
-                .bodyToMono(ProdutoLabel.class)
-                .block();
-
-        log.info(result.getLabel());
-
-        Produto produto = Produto.builder().nome(result.getLabel()).epoca(result.getEpoca()).build();
-
-        solo.setProduto(produto);
-
-        produtoRepository.save(produto);
-        soloRepository.save(solo);
-        usuarioRepository.save(usuario);
-        return ResponseEntity.ok(solo);
-    }
-
+//    @PostMapping("solo")
+//    public ResponseEntity<Object> addSolo(@RequestHeader("Authorization") String header, @RequestBody @Valid Solo solo) {
+//        log.info("buscando usuario");
+//        var usuario = tokenService.validate(tokenService.getToken(header));
+//
+//        String url = "http://localhost:5000/"
+//                + String.valueOf(solo.getNitrogenio()) + "/"
+//                + String.valueOf(solo.getFosforo()) + "/"
+//                + String.valueOf(solo.getPotassio()) + "/"
+//                + String.valueOf(solo.getTemperatura()) + "/"
+//                + String.valueOf(solo.getUmidade()) + "/"
+//                + String.valueOf(solo.getPh()) + "/"
+//                + String.valueOf(solo.getChuva());
+//
+//        log.info("fazendo requisição na url: " + url);
+//
+//        WebClient.Builder builder = WebClient.builder();
+//
+//        ProdutoLabel result = builder.build()
+//                .get()
+//                .uri(url)
+//                .retrieve()
+//                .bodyToMono(ProdutoLabel.class)
+//                .block();
+//
+//        log.info(result.getLabel());
+//
+//        Produto produto = Produto.builder().nome(result.getLabel()).epoca(result.getEpoca()).build();
+//
+//        solo.setProduto(produto);
+//        solo.setUsuario(usuario);
+//
+//        produtoRepository.save(produto);
+//        soloRepository.save(solo);
+//        usuarioRepository.save(usuario);
+//        return ResponseEntity.ok(solo);
+//    }
+//
+//    @GetMapping("solo")
+//    public Page<Solo> solos(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable) {
+//        log.info("buscando usuario");
+//        var usuario = tokenService.validate(tokenService.getToken(header));
+//        var listSolo = usuario.getSoloList();
+//        int start = (int) pageable.getOffset();
+//        int end = (int) (Math.min((start + pageable.getPageSize()), listSolo.size()));
+//        return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
+//    }
 
 
 }

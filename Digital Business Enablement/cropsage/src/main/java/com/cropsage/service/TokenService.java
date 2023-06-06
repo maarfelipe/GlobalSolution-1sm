@@ -40,4 +40,13 @@ public class TokenService {
         return (Usuario) usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new JWTVerificationException("usuario não encontrado"));
     }
+
+    public String getToken(String header) {
+        if (header == null || !header.startsWith("Bearer ")) {
+            return null;
+        }
+
+        return header.replace("Bearer ", "");
+    }
+
 }

@@ -88,7 +88,7 @@ public class SoloController {
     public Page<Solo> solos(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable) {
         log.info("buscando usuario");
         var usuario = tokenService.validate(tokenService.getToken(header));
-        var listSolo = usuario.getSoloList();
+        var listSolo = soloRepository.findByUsuario(usuario);
         int start = (int) pageable.getOffset();
         int end = (int) (Math.min((start + pageable.getPageSize()), listSolo.size()));
         return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
@@ -110,7 +110,7 @@ public class SoloController {
     public Page<Solo> solosByProdutoNome(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable, @PathVariable String nome) {
         log.info("buscando usuario");
         var usuario = tokenService.validate(tokenService.getToken(header));
-        var listSolo = soloRepository.findByUsuarioAndProdutoNomeContaining(usuario,nome);
+        var listSolo = soloRepository.findByUsuarioAndProduto_NomeContainsIgnoreCase(usuario, nome);
         int start = (int) pageable.getOffset();
         int end = (int) (Math.min((start + pageable.getPageSize()), listSolo.size()));
         return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
@@ -120,7 +120,7 @@ public class SoloController {
     public Page<Solo> solosByLocalizacaoNome(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable, @PathVariable String nome) {
         log.info("buscando usuario");
         var usuario = tokenService.validate(tokenService.getToken(header));
-        var listSolo = soloRepository.findByUsuarioAndLocalizacaoNomeContaining(usuario,nome);
+        var listSolo = soloRepository.findByUsuarioAndLocalizacao_NomeContainsIgnoreCase(usuario, nome);
         int start = (int) pageable.getOffset();
         int end = (int) (Math.min((start + pageable.getPageSize()), listSolo.size()));
         return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());

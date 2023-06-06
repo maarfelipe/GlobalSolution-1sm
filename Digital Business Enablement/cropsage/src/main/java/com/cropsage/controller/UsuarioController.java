@@ -74,6 +74,7 @@ public class UsuarioController {
     @PostMapping("login")
     public ResponseEntity<Object> login(@RequestBody Credencial credencial) {
         manager.authenticate(credencial.toAuthentication());
+        log.info("autenticado");
         var token = tokenService.generateToken(credencial);
         return ResponseEntity.ok(token);
     }
@@ -82,7 +83,9 @@ public class UsuarioController {
     public ResponseEntity<Object> delete(@RequestHeader("Authorization") String header) {
         log.info("buscando usuario");
         var result = tokenService.validate(tokenService.getToken(header));
-        soloRepository.deleteAll(soloRepository.findByUsuario(result));
+        log.info("deletando solos do usuario");
+        soloRepository.deleteAll(result.getSoloList());
+        log.info("deletando usuario");
         usuarioRepository.delete(result);
         return ResponseEntity.noContent().build();
     }
@@ -93,6 +96,7 @@ public class UsuarioController {
         var result = tokenService.validate(tokenService.getToken(header));
         usuario.setId(result.getId());
         usuario.setSenha(encoder.encode(usuario.getSenha()));
+        log.info("salvando usuario");
         usuarioRepository.save(usuario);
         return ResponseEntity.ok(usuario);
     }

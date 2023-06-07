@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ResponseStatusException;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/cropsage/api/solo")
 public class SoloController {
@@ -50,6 +51,7 @@ public class SoloController {
     @Value("${cropsage.ml.port}")
     private String mlport;
 
+    @CrossOrigin
     @PostMapping
     public ResponseEntity<Object> addSolo(@RequestHeader("Authorization") String header, @RequestBody @Valid Solo solo) {
         log.info("buscando usuario");
@@ -90,6 +92,7 @@ public class SoloController {
         return ResponseEntity.ok(solo);
     }
 
+    @CrossOrigin
     @GetMapping
     public Page<Solo> solos(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable) {
         log.info("buscando usuario");
@@ -100,6 +103,7 @@ public class SoloController {
         return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
     }
 
+    @CrossOrigin
     @GetMapping("{id}")
     public ResponseEntity<Object> index(@RequestHeader("Authorization") String header, @PathVariable long id) {
         log.info("buscando usuario");
@@ -112,6 +116,7 @@ public class SoloController {
         return ResponseEntity.ok(solo);
     }
 
+    @CrossOrigin
     @GetMapping("produto/{nome}")
     public Page<Solo> solosByProdutoNome(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable, @PathVariable String nome) {
         log.info("buscando usuario");
@@ -122,6 +127,7 @@ public class SoloController {
         return new PageImpl<Solo>(listSolo.subList(start, end), pageable, listSolo.size());
     }
 
+    @CrossOrigin
     @GetMapping("localizacao/{nome}")
     public Page<Solo> solosByLocalizacaoNome(@RequestHeader("Authorization") String header, @PageableDefault(size = 5) Pageable pageable, @PathVariable String nome) {
         log.info("buscando usuario");

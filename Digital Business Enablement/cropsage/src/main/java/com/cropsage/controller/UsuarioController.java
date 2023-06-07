@@ -32,6 +32,7 @@ import java.net.Authenticator;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/cropsage/api/usuario")
 public class UsuarioController {
@@ -56,6 +57,7 @@ public class UsuarioController {
     @Autowired
     TokenService tokenService;
 
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<Object> index(@RequestHeader("Authorization") String header) {
         log.info("buscando usuario");
@@ -63,6 +65,7 @@ public class UsuarioController {
         return ResponseEntity.ok(result);
     }
 
+    @CrossOrigin
     @PostMapping("cadastrar")
     public ResponseEntity<Object> cadastro(@RequestBody @Valid Usuario usuario) {
         log.info("cadastrando usuario");
@@ -71,6 +74,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 
+    @CrossOrigin
     @PostMapping("login")
     public ResponseEntity<Object> login(@RequestBody Credencial credencial) {
         manager.authenticate(credencial.toAuthentication());
@@ -79,6 +83,7 @@ public class UsuarioController {
         return ResponseEntity.ok(token);
     }
 
+    @CrossOrigin
     @DeleteMapping
     public ResponseEntity<Object> delete(@RequestHeader("Authorization") String header) {
         log.info("buscando usuario");
@@ -90,6 +95,7 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 
+    @CrossOrigin
     @PutMapping
     public ResponseEntity<Object> update(@RequestHeader("Authorization") String header, @RequestBody @Valid Usuario usuario) {
         log.info("buscando usuario");

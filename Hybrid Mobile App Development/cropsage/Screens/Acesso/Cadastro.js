@@ -17,42 +17,23 @@ const Cadastro = ({navigation}) => {
             senha: senha
         }
 
-        createAlert(JSON.stringify(credential))
-
         try {
             const response = await axios.post(
                 `http://10.0.2.2:8080/cropsage/api/usuario/cadastrar`,
                 credential
             );
             console.log(response);
+            createAlert("Cadastro realizado com sucesso!\nPor favor faça login");
+            navigation.navigate("login");
         } catch (error) {
             console.log(error);
         }
-
-        /*
-        try {
-            const response = await axios.post(
-                `http://localhost:8080/cropsage/api/usuario/cadastro`,
-                credential
-            );
-        } catch (error) {
-            console.log(JSON.stringify(error));
-        }
-        */
     }
 
     const createAlert = (text) => {
-        Alert.alert("Aviso", `Token: ${text}`, [{
+        Alert.alert("Aviso", text, [{
             text: "OK",
         }])
-    }
-
-    const getToken = async () => {
-        try {
-            createAlert(await AsyncStorage.getItem("token"));
-        }  catch (error) {
-            console.log(error);
-        }
     }
 
     return(
@@ -73,7 +54,6 @@ const Cadastro = ({navigation}) => {
                 value={senha}
                 onChangeText={setSenha}
             />
-            <TouchableOpacity onPress={getToken}><Text>Token</Text></TouchableOpacity>
             <TouchableOpacity onPress={cadastro}><Text>Cadastro</Text></TouchableOpacity>
         </View>
     );

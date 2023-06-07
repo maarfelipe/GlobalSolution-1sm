@@ -24,7 +24,7 @@ public class TokenService {
         var jwt = JWT.create()
                 .withSubject(credencial.email())
                 .withIssuer("CropSage")
-                .withExpiresAt(Instant.now().plus(20, ChronoUnit.MINUTES))
+                .withExpiresAt(Instant.now().plus(4, ChronoUnit.HOURS))
                 .sign(alg);
         return new Token(jwt, "JWT", "Bearer");
     }

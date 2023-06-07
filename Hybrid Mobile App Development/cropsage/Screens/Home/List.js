@@ -5,48 +5,44 @@ import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
 
 const List = () => {
     const [token, setToken] = useState('');
-    const {getItem, setItem} = useAsyncStorage("token");
-
-    const readItemFromStorage = async () => {
-        const item = await getItem();
-        setToken(item);
-    }
-
-    const writeItemToStorage = async newValue => {
-        await setItem(newValue);
-        setToken(newValue);
-    }
-
     const [list, setList] = useState([]);
     const [user, setUser] = useState("");
 
     const fetchUser = async () => {
+        const Token = await AsyncStorage.getItem("token");
+        setToken(Token);
+        console.log(`pegando user com ${Token}`)
         try {
             const {data} = await axios.get(`http://10.0.2.2:8080/cropsage/api/usuario`,{
-                headers:{Authorization:`Bearer ${token}`}
+                headers:{Authorization:`Bearer ${Token}`}
             });
-            console.log(JSON.stringify(data))
             setUser(data);
         } catch (error) {
             console.log(error);
         }
     }
 
+    const fetchList = async () => {
+        try {
+        const {data} = await axios.get(`http://10.0.2.2:8080/cropsage/api/solo`,{
+            headers:{Authorization:`Bearer ${token}`}
+        });
+        setList(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
-        readItemFromStorage();
         fetchUser();
     }, [])
     
 
-    const fetchList = async () => {
-        const {data} = await axios.get()
-    }
 
     return(
         <View>
-            <Text>List</Text>
-            <TouchableOpacity onPress={fetchUser}><Text>POG</Text></TouchableOpacity>
-            <Text>{user.nome}</Text>
+            <Text>{`Olá, ${user.nome}`}</Text>
+            <Text>{JSON.stringify(list)}</Text>
         </View>
     )
 }

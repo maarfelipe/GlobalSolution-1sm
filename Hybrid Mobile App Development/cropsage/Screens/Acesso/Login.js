@@ -7,7 +7,6 @@ const Login = ({navigation}) => {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const [token, setToken] = useState("");
 
     const login = async () => {
 
@@ -21,11 +20,11 @@ const Login = ({navigation}) => {
                 `http://10.0.2.2:8080/cropsage/api/usuario/login`,
                 credential
             );
-            setToken(response.data.token);
 
             try {
-                await AsyncStorage.setItem("token",token);
-                navigation.push("home");
+                await AsyncStorage.setItem("token",response.data.token);
+                console.log(await AsyncStorage.getItem("token"));
+                navigation.navigate("home");
             } catch (error) {
                 console.log(error);
             }
@@ -53,7 +52,6 @@ const Login = ({navigation}) => {
     return(
         <View>
             <Text>Login</Text>
-            <Text>{`${email} - ${senha} - ${token}`}</Text>
             <TextInput
                 placeholder="Email"
                 value={email}

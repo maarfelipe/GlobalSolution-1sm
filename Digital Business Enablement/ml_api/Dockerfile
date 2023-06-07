@@ -1,4 +1,5 @@
 FROM python:3.9
+WORKDIR /cropsage
 VOLUME /ml_api
 ENV FLASK_APP=deploy.py
 ENV FLASK_RUN_HOST=0.0.0.0

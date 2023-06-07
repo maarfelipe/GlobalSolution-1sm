@@ -12,7 +12,6 @@ DROP TABLE t_gs_localizacao CASCADE CONSTRAINTS;
 CREATE TABLE t_gs_produto (
     cd_produto NUMBER(5) primary key,
     nm_produto VARCHAR2(50) NOT NULL,
-    ds_produto VARCHAR2(50) NOT NULL,
     ds_plantio VARCHAR2(50)
 );
 

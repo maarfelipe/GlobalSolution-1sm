@@ -6,17 +6,17 @@ Código em pl/sql que insere automaticamente as informações da tabela:
 T_GS_PRODUTO
 */
 BEGIN
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (1, 'Arroz', 'Produto de plantação', 'De Outubro (01/10) - Dezembro (31/12)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (2, 'Milho', 'Produto de plantação', 'De Setembro (25/09) - Novembro (01/11)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (3, 'Trigo', 'Produto de plantação', 'De Junho (01/06) - Agosto (31/08)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (4, 'Feijão', 'Produto de plantação', 'De Janeiro (01/09) - Novembro (31/11)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (5, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (6, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (7, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (8, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (9, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (10, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
-    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (11, 'Batata', 'Produto de plantação', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (1, 'Arroz', 'De Outubro (01/10) - Dezembro (31/12)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (2, 'Milho', 'De Setembro (25/09) - Novembro (01/11)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (3, 'Trigo', 'De Junho (01/06) - Agosto (31/08)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (4, 'Feijão', 'De Janeiro (01/09) - Novembro (31/11)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (5, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (6, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (7, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (8, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (9, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (10, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
+    INSERT INTO t_gs_produto (cd_produto, nm_produto, ds_produto, ds_plantio) VALUES (11, 'Batata', 'De Janeiro (01/01) - Junho (01/06)');
   COMMIT;
 END;
 

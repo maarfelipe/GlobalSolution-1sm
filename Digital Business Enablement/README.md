@@ -6,6 +6,9 @@
 ## Modelo relacional
 ![MODELO](Relational_1.png)
 
+## Vídeo Pitch
+https://youtu.be/V5JjRuASgcI
+
 ## Instalação & Execução
 
 Para a instalação é necessário ter o Docker instalado.

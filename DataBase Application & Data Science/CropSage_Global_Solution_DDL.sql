@@ -38,8 +38,8 @@ CREATE TABLE t_gs_localizacao (
     fk_usuario_localizacao    references t_gs_usuario,
     ds_longitude   VARCHAR2(10) NOT NULL,
     ds_latitude    VARCHAR2(10) NOT NULL,
-    nm_localizacao VARCHAR2(50),
-    ds_cep         VARCHAR2(8) NOT NULL
+    nm_localizacao VARCHAR2(50) NOT NULL,
+    ds_cep         VARCHAR2(8) 
 );
 
 

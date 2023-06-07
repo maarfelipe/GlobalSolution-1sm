@@ -41,7 +41,7 @@
 <dataTypeSize>50</dataTypeSize>
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dt_plantio " id="46B47E17-CD8F-061D-EE65-A65F3ED0C32F">
+<Attribute name="ds_plantio " id="46B47E17-CD8F-061D-EE65-A65F3ED0C32F">
 <createdBy>luizz</createdBy>
 <createdTime>2023-06-05 12:46:14 UTC</createdTime>
 <ownerDesignName>CropSage_Global_Solution_Relacional</ownerDesignName>

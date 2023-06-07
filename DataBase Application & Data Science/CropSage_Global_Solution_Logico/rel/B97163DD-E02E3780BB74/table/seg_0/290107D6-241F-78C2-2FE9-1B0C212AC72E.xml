@@ -32,14 +32,15 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="dt_plantio" id="6149BDD1-BB92-F43D-3C85-F2B5F4D5374B">
+<Column name="ds_plantio" id="6149BDD1-BB92-F43D-3C85-F2B5F4D5374B">
 <createdBy>luizz</createdBy>
 <createdTime>2023-06-05 12:49:31 UTC</createdTime>
 <ownerDesignName>CropSage_Global_Solution_Logico</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

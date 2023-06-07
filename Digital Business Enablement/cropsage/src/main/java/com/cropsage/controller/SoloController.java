@@ -55,7 +55,7 @@ public class SoloController {
         log.info("buscando usuario");
         var usuario = tokenService.validate(tokenService.getToken(header));
 
-        String url = "http://" + mlhost + ":" + mlport + "/"
+        String url = mlhost + ":" + mlport + "/"
                 + String.valueOf(solo.getNitrogenio()) + "/"
                 + String.valueOf(solo.getFosforo()) + "/"
                 + String.valueOf(solo.getPotassio()) + "/"

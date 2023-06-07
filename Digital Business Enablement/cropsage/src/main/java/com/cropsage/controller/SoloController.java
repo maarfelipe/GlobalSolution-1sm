@@ -105,7 +105,7 @@ public class SoloController {
         log.info("buscando usuario");
         var usuario = tokenService.validate(tokenService.getToken(header));
         var solo = soloRepository.findById(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Solo não encontrado"));
         if (solo.getUsuario() != usuario) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Esse solo é de outro Usuário");
         }

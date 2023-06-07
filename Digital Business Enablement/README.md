@@ -350,6 +350,7 @@ Essa requisição retorna um Token que é necessário para fazer qualquer outra 
 |--------|--------------------------------|
 | 200    | o solo foi exibido com sucesso |
 | 404    | o solo não foi encontrado      |
+| 403    | o solo não é do usuário        |
 
 *Exemplo de resposta*
 ```

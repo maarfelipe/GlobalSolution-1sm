@@ -8,8 +8,8 @@ const Stack = createNativeStackNavigator();
 const Acesso = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="login" component={Login} options={{headerTitle: "Login"}} />
-        <Stack.Screen name="cadastro" component={Cadastro} options={{headerTitle: "Cadastro"}} />
+        <Stack.Screen name="login" component={Login} options={{headerShown: false}} />
+        <Stack.Screen name="cadastro" component={Cadastro} options={{headerShown: false}} />
       </Stack.Navigator>
   );
 };

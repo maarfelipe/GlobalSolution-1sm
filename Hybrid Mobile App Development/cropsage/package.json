@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",
+    "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/native-stack": "^6.9.12",
     "axios": "^1.4.0",
     "feather-icons": "^4.29.0",

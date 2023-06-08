@@ -20,6 +20,7 @@ https://youtu.be/WZSwErOizBU
 
 ## Instalação & Execução
 
+Clone o Repositório https://github.com/maarfelipe/GlobalSolution-1sm que possuí a API em Docker.
 Para a instalação é necessário ter o Docker instalado.
 Na pasta Digital Business Enablement, execute o comando:
 

@@ -13,7 +13,7 @@
 ![MODELO](Relational_1.png)
 
 ## Vídeo Pitch
-https://youtu.be/V5JjRuASgcI
+https://youtu.be/b_0CUewe58o
 
 ## Vídeo Explicação
 https://youtu.be/WZSwErOizBU

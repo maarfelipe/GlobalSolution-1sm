@@ -1,4 +1,8 @@
-# DIGITAL BUSINESS ENABLEMENT
+# Giovanna Sousa RM94767
+# Henry Kinoshita RM93443
+# Luiz Felipe Souza de Oliveira RM94538
+# Matheus Felipe RM93772
+# Victor Mendes RM92843
 
 ## Diagrama de Classes
 ![DIAGRAMA](Digital%20Business%20Enablement/diagramaclasses.png)

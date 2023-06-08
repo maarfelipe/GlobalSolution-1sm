@@ -1,4 +1,4 @@
-# DIGITAL BUSINESS ENABLEMENT
+# HYBRID MOBILE APP DEVELOPMENT
 
  - Giovanna Sousa RM94767
  - Henry Kinoshita RM93443
@@ -21,7 +21,7 @@ https://youtu.be/WZSwErOizBU
 ## Instalação & Execução
 
 Para a instalação é necessário ter o Docker instalado.
-Na pasta Digital Business Enablement (essa pasta), execute o comando:
+Na pasta Digital Business Enablement, execute o comando:
 
 ``
 docker-compose up -d --build

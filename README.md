@@ -1,10 +1,10 @@
 # DIGITAL BUSINESS ENABLEMENT
 
 ## Diagrama de Classes
-![DIAGRAMA](diagramaclasses.png)
+![DIAGRAMA](Digital%20Business%20Enablement/diagramaclasses.png)
 
 ## Modelo relacional
-![MODELO](Relational_1.png)
+![MODELO](DataBase%20Application%20%26%20Data%20Science/Relational_1.png)
 
 ## Vídeo Pitch
 https://youtu.be/V5JjRuASgcI
